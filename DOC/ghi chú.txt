@@ -1,0 +1,28 @@
+file DOC1 chứa các dữ liệu ảnh của hệ thống
+file DOC2 chứa các model huấn luyện, pretrain của hệ thống
+file DOC3 chứa các source code của hệ thống
+Chương trình được sử dụng trong đồ án “Mở cửa tự động nhận dạng khuôn mặt” được chạy trên Python phiên bản lastest. 
+Các thư viện hỗ trợ cần thiết như OpenCV, Tensorflow,
+Keras, numpy, Pillow, Psutil, Matplotlob, Scikit-learn, Scipy. 
+Cách cài đặt 
+Sử dụng lệnh pip install ( thư viện cần cài đặt)
+Lệnh chạy chương trình trong đồ án
+Đứng tại thư mục DOC
+	.....
+sử dụng lệnh:
+python3 DOC3/align_dataset_mtcnn.py  DOC1/FaceData/anhkhuonmat DOC1/FaceData/anhcanchinh --image_size 160 --margin 32  --random_order --gpu_memory_fraction 0.25
+để crop ảnh và căn chỉnh khuôn mặt
+sử dụng lệnh:
+python3 DOC3/classifier.py TRAIN DOC1/FaceData/anhcanchinh DOC2/20221010-114759.pb DOC2/facemodel.pkl --batch_size 1000
+để train model
+sử dụng lệnh:
+python3 DOC3/classifier.py CLASSIFY DOC1/FaceData/anhcanchinh DOC2/20221010-114759.pb DOC2/facemodel.pkl --batch_size 1000
+để CLASSIFY model
+Sử dụng lệnh python3 DOC3/main.py để khởi động hệ thống.
+
+py -m pip install name-lib
+
+
+2000px 13h50p
+
+py DOC3/face_rec_test_2.py
